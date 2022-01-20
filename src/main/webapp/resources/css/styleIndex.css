@@ -1,0 +1,239 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#body{
+    overflow-x:hidden;
+}
+
+@font-face {
+    font-family: Karol;
+    src: url("../fontes/PlayfairDisplay-Italic-VariableFont_wght.ttf");
+}
+/*
+    font-family: 'Raleway', sans-serif;
+*/
+
+/* Estilização do Header */
+#header{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#nav{
+    width: 100vw;
+    height: 12vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ed6c09;
+    font-family: Karol;
+}
+
+#list-left > h3{
+    display: inline-block;
+    font-size:22px;
+    letter-spacing:3px;
+    margin:0px 40px;
+    cursor: pointer;
+    color: white;
+    border-bottom: 5px solid #ed6c09;
+}
+
+#list-right > h3{
+    display: inline-block;
+    font-size:22px;
+    letter-spacing:3px;
+    margin:0px 40px;
+    cursor: pointer;
+    color: white;
+}
+
+#item1:hover{
+    border-bottom: 5px solid #ffa552;
+}
+
+#item-btn{
+    padding:12px;
+    background-color:#ffa552;
+    border-radius: 5px;
+    transition: .3s ease-in-out;
+}
+
+#item-btn:hover{
+	background-color:#eb8213;
+}
+
+#section-slider{
+    display: block;
+    width:90vw;
+    height:60vh;
+    margin: 5% auto;
+    border: 1px solid #000;
+}
+
+#redes-sociais{
+    position:fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.icons-redes{
+    width: 32px;
+    height:32px;
+    display: block;
+    margin-top: 10px;
+}
+
+
+/* Estilização da section one */
+
+#section-one{
+    width:100vw;
+    height:70vh;
+}
+
+#container-box{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-children{
+    width:20%;
+    height:300px;
+    border: 1px solid #000;
+    margin: 0px 20px;
+}
+
+/* Estilizando o footer */
+
+#footer{
+    width:100vw;
+    height:30vh;
+    background-color: #ed6c09;
+}
+
+
+/* Estilizando o pop-up (Modal) */
+
+.box-container-class{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+}
+
+.box-modal-class{
+    width: 60%;
+    background-color: white;
+    min-width: 350px;
+    border: 5px solid #ed6c09;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 5px white;
+    position: relative;
+    animation: modal 1s;
+}
+
+@keyframes modal {
+    from{
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.inputs{
+    display: block;
+    margin: 20px auto;
+    width: 90%;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ffa552;
+    outline: #ed6c09;
+}
+
+.buttons{
+    display: block;
+    margin: 8% auto 20px auto;
+    width: 20%;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color:#ffa552;
+    color: white;
+    border: 1px solid #ed6c09;
+    outline: none;
+}
+
+#group-checkbox{
+	margin-left: 5%;
+	position: relative;
+}
+
+#label-checkbox{
+	font-size: 20px;
+	color:#ed6c09;
+}
+
+#id-check{
+  width: 25px;
+  height: 25px;
+  margin-left:5px;
+  position: absolute;
+}
+
+#title-modal{
+    text-align: center;
+    padding: 20px;
+    color: rgb(80, 74, 74);
+    font-family: karol;
+}
+
+#button-closed-modal{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ed6c09;
+    color: white;
+    border: 5px solid white;
+    box-shadow: 2px 2px 5px #000;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: -25px;
+    right: -25px;
+}
+
+#link{
+    display: block;
+    text-align: center;
+    margin-top: 5%;
+}
+
+a{
+	color:#ed6c09;
+	text-decoration: none;
+	font-size:20px;
+}
+
+@media screen and(max-width: 768px) {
+	
+}

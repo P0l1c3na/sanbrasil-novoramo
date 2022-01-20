@@ -11,23 +11,23 @@ public interface IService<T, I extends Serializable> {
      *
      * @param entity - Classe de entidade a ser persistida no banco
      * @return Optional<T> - Objeto Optional retornado após realizar a operação de salvar
-     * @since 03/03/2020
+     * @since 01/01/2022
      */
     T save(@Valid T entity);
 
     /**
-     * Exclui uma entidade
+     * Exclui uma entidade por id
      *
      * @param id - ID da entidade a ser excluída
-     * @since 03/03/2020
+     * @since 01/01/2022
      */
-    void delete(I id);
+    void deleteById(I id);
 
     /**
      * Método para retornar a lista de usuarios.
      *
      * @return Optional<List < T>> - Um Optional contendo a lista de usuários.
-     * @since 03/03/2020.
+     * @since 01/01/2022
      */
     List<T> findAll();
 
@@ -36,7 +36,7 @@ public interface IService<T, I extends Serializable> {
      *
      * @param id - Id da entidade a ser encontrada.
      * @return um Optional da entidade buscada.
-     * @since 03/03/2020.
+     * @since 01/01/2022
      */
     T findById(I id);
 

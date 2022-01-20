@@ -12,7 +12,7 @@ public interface IRestController<T, I extends Serializable> {
      *
      * @param entity - Classe de entidade a ser persistida no banco
      * @return Optional<T> - Objeto Optional retornado após realizar a operação de salvar
-     * @since 03/03/2020
+     * @since 01/01/2022
      */
     ResponseEntity<Object> save(T entity);
 
@@ -20,15 +20,15 @@ public interface IRestController<T, I extends Serializable> {
      * Excui uma entidade
      *
      * @param id - ID da entidade a ser excluída
-     * @since 03/03/2020
+     * @since 01/01/2022
      */
-    void delete(I id);
+    void deleteById(I id);
 
     /**
      * Método para retornar a lista de usuarios.
      *
      * @return List<T> - Uma lista de valores.
-     * @since 03/03/2020.
+     * @since 01/01/2022.
      */
     List<T> findAll();
 
@@ -37,7 +37,7 @@ public interface IRestController<T, I extends Serializable> {
      *
      * @param id - Id da entidade a ser encontrada.
      * @return um Optional da entidade buscada.
-     * @since 03/03/2020.
+     * @since 01/01/2022.
      */
     T findById(I id);
 }

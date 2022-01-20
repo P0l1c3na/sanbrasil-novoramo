@@ -1,11 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world CAARAI"/>
-</f:view>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SanBrasil</title>
+</h:head>
+<h:body id="body">
+
+    <h:outputStylesheet name="styleIndex.css" library="css" />
+
+    <h:panelGroup rendered="#{!empty param.login_error}">
+        <span style="color: red"> Erro ao efetuar o login.</span>
+        <br />
+        <br />
+        Motivo: #{SPRING_SECURITY_LAST_EXCEPTION.message}
+    </h:panelGroup>
+
+    <div id="header">
+        <div id="nav">
+            <div id="list-left">
+                <h3 id="item1">SanBrasil</h3>
+            </div>
+            <div id="list-right">
+                <h3 id="item-btn">Login</h3>
+            </div>
+        </div>
+
+        <div id="section-slider"></div>
+
+        <div id="redes-sociais">
+            <h:graphicImage library="../../resources/imagens/icones" name="WHATS.png" styleClass="icons-redes"/>
+            <h:graphicImage library="/resources/imagens/icones" name="FACE.png"  styleClass="icons-redes"/>
+            <h:graphicImage library="/resources/imagens/icones" name="INSTA.png" styleClass="icons-redes"/>
+        </div>
+    </div>
+
+    <div id="main">
+        <div id="section-one">
+            <div id="container-box">
+                <div id="box-one" class="box-children"></div>
+                <div id="box-two" class="box-children"></div>
+                <div id="box-three" class="box-children"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+
+    </div>
+
+    <div id="box-container-id" class="box-container-class">
+        <div id="box-modal-id" class="box-modal-class">
+            <h1 id="title-modal">Acesse já!</h1>
+            <form id="login" method="post" action="#{request.contextPath}/j_spring_security_check">
+                <input type='text' name='j_username' class="inputs" placeholder="Usuario"/>
+                <input type='password' name='j_password' class="inputs" placeholder="Senha"/>
+                <div id="group-checkbox">
+                    <label id="label-checkbox" for="id-check">Logar automaticamente</label>
+                    <input id="id-check" type="checkbox" name="_spring_security_remember_me" />
+                </div>
+                <input type="submit" value="Logar" class="buttons"/>
+                <div>
+                    <a id="link" href="publico/cadastroUsuario.jsf">Não tem uma conta? Cadastre-se.</a>
+                </div>
+                <script>
+                    document.getElementById("login").j_username.value = "#{SPRING_SECURITY_LAST_USERNAME}";
+                </script>
+            </form>
+            <button id="button-closed-modal">X</button>
+
+        </div>
+    </div>
+
+    <h:outputScript name="jvs.js" library="js"></h:outputScript>
+
+</h:body>
 </html>
