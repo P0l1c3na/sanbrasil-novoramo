@@ -1,6 +1,6 @@
 package br.ifgoiano.sanbrasil.novoramo.service;
 
-import br.ifgoiano.sanbrasil.novoramo.interfaces.IService;
+import br.ifgoiano.sanbrasil.novoramo.interfaces.ISanBrasilService;
 import br.ifgoiano.sanbrasil.novoramo.model.Perfil;
 import br.ifgoiano.sanbrasil.novoramo.repository.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Service
-public class PerfilService implements IService<Perfil, Long> {
+public class PerfilService implements ISanBrasilService<Perfil, Long> {
 
     @Autowired
     private PerfilRepository perfilRepository;

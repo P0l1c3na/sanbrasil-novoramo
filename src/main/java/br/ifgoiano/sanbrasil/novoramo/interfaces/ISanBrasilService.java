@@ -4,7 +4,7 @@ import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 
-public interface IService<T, I extends Serializable> {
+public interface ISanBrasilService<T, I extends Serializable> {
 
     /**
      * Salva uma entidade

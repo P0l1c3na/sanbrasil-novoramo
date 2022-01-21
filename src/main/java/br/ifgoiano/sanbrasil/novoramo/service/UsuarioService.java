@@ -1,6 +1,6 @@
 package br.ifgoiano.sanbrasil.novoramo.service;
 
-import br.ifgoiano.sanbrasil.novoramo.interfaces.IService;
+import br.ifgoiano.sanbrasil.novoramo.interfaces.ISanBrasilService;
 import br.ifgoiano.sanbrasil.novoramo.model.Perfil;
 import br.ifgoiano.sanbrasil.novoramo.model.Usuario;
 import br.ifgoiano.sanbrasil.novoramo.repository.UsuarioRepository;
@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class UsuarioService  implements IService<Usuario, String> {
+public class UsuarioService  implements ISanBrasilService<Usuario, String> {
 
     @Autowired
     BCryptPasswordEncoder passwordEncoder;

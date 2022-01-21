@@ -2,8 +2,10 @@ package br.ifgoiano.sanbrasil.novoramo.config;
 
 import br.ifgoiano.sanbrasil.novoramo.enums.PerfilUsuario;
 import br.ifgoiano.sanbrasil.novoramo.model.Perfil;
+import br.ifgoiano.sanbrasil.novoramo.service.JsonImportService;
 import br.ifgoiano.sanbrasil.novoramo.service.PerfilService;
 import br.ifgoiano.sanbrasil.novoramo.service.UsuarioService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 
 @Component
+@Slf4j
 public class UserDataInitialConfig implements ApplicationListener<ContextRefreshedEvent> {
 
     @Autowired
@@ -19,6 +22,9 @@ public class UserDataInitialConfig implements ApplicationListener<ContextRefresh
 
     @Autowired
     PerfilService perfilService;
+
+    @Autowired
+    JsonImportService jsonImportService;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent arg0) {
@@ -31,6 +37,11 @@ public class UserDataInitialConfig implements ApplicationListener<ContextRefresh
 
         }
 
+        try {
+            jsonImportService.lerArquivoJson();
+        } catch (Exception e) {
+            log.error("Erro ", e);
+        }
     }
 
 }
