@@ -48,7 +48,7 @@ public class UsuarioService  implements ISanBrasilService<Usuario, String> {
         user.setDataDeCadastro(LocalDate.now());
         user.setEmail(user.getEmail());
         user.setSenha(passwordEncoder.encode(usuario.getSenha()));
-        user.setPerfis(Collections.singletonList(new Perfil(1L, PerfilUsuario.USUARIO.name())) );
+        user.setPerfis(Collections.singletonList(new Perfil(2L, PerfilUsuario.USUARIO.name())) );
         user.setNome(usuario.getNome());
         user.setTelefone(usuario.getTelefone());
         return user;

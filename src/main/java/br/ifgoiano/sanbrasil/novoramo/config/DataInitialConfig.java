@@ -35,7 +35,6 @@ public class DataInitialConfig implements ApplicationListener<ContextRefreshedEv
         if (usuarioService.count() == 0) {
             var funcaoAdm = perfilService.save(new Perfil(1L, PerfilUsuario.ADMIN.name()));
             perfilService.save(new Perfil(2L, PerfilUsuario.USUARIO.name()));
-            perfilService.save(new Perfil(3L, PerfilUsuario.PUBLICO.name()));
             usuarioService.createUser("phaelpolicena@gmail.com",
                     "senha123", Collections.singletonList(funcaoAdm), Boolean.TRUE, "Raphael Policena", "");
 
