@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import java.io.Serializable;
 import java.util.List;
 
-public interface IRestController<T, I extends Serializable> {
+public interface ISanBrasilRestController<T, I extends Serializable> {
 
     /**
      * Salva uma entidade
@@ -14,7 +14,7 @@ public interface IRestController<T, I extends Serializable> {
      * @return Optional<T> - Objeto Optional retornado após realizar a operação de salvar
      * @since 01/01/2022
      */
-    ResponseEntity<Object> save(T entity);
+    ResponseEntity<T> save(T entity);
 
     /**
      * Excui uma entidade
@@ -39,5 +39,5 @@ public interface IRestController<T, I extends Serializable> {
      * @return um Optional da entidade buscada.
      * @since 01/01/2022.
      */
-    T findById(I id);
+    ResponseEntity<T> findById(I id);
 }

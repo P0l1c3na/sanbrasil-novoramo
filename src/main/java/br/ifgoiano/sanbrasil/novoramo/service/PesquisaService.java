@@ -15,7 +15,6 @@ public class PesquisaService implements ISanBrasilService<Pesquisa, Long> {
     @Autowired
     private PesquisaRepository pesquisaRepository;
 
-
     @Override
     public Pesquisa save(@Valid Pesquisa entity) {
         return pesquisaRepository.save(entity);
@@ -35,4 +34,10 @@ public class PesquisaService implements ISanBrasilService<Pesquisa, Long> {
     public Pesquisa findById(Long id) {
         return pesquisaRepository.findById(id).orElse(null);
     }
+
+    public Long  count() {
+        return pesquisaRepository.count();
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package br.ifgoiano.sanbrasil.novoramo.service;
 
+import br.ifgoiano.sanbrasil.novoramo.enums.PerfilUsuario;
 import br.ifgoiano.sanbrasil.novoramo.interfaces.ISanBrasilService;
 import br.ifgoiano.sanbrasil.novoramo.model.Perfil;
 import br.ifgoiano.sanbrasil.novoramo.model.Usuario;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -40,6 +42,18 @@ public class UsuarioService  implements ISanBrasilService<Usuario, String> {
         return user;
     }
 
+    public Usuario handleUser(Usuario usuario) {
+        var user = new Usuario();
+        user.setAtivo(Boolean.TRUE);
+        user.setDataDeCadastro(LocalDate.now());
+        user.setEmail(user.getEmail());
+        user.setSenha(passwordEncoder.encode(usuario.getSenha()));
+        user.setPerfis(Collections.singletonList(new Perfil(1L, PerfilUsuario.USUARIO.name())) );
+        user.setNome(usuario.getNome());
+        user.setTelefone(usuario.getTelefone());
+        return user;
+    }
+
     @Override
     public Usuario save(@Valid Usuario entity) {
         return repository.save(entity);
@@ -66,5 +80,9 @@ public class UsuarioService  implements ISanBrasilService<Usuario, String> {
 
     public Usuario findByNome(String nome){
         return repository.findByNome(nome);
+    }
+
+    public Usuario salvarExterno(Usuario usuario){
+        return this.save(this.handleUser(usuario));
     }
 }
