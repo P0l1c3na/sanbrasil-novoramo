@@ -11,30 +11,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pesquisa")
-public class PesquisaController implements ISanBrasilRestController<Pesquisa, Long> {
+public class PesquisaController {
 
     @Autowired
     private PesquisaService pesquisaService;
 
-    @Override
-    @PostMapping
-    public ResponseEntity<Pesquisa> save(@RequestBody Pesquisa entity) {
-        return ResponseEntity.ok(pesquisaService.save(entity));
-    }
 
-    @Override
-    @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Long id) {
-        pesquisaService.deleteById(id);
-    }
-
-    @Override
     @GetMapping
     public List<Pesquisa> findAll() {
         return pesquisaService.findAll();
     }
 
-    @Override
     @GetMapping("/{id}")
     public ResponseEntity<Pesquisa> findById(@PathVariable Long id) {
         return ResponseEntity.ok(pesquisaService.findById(id));
