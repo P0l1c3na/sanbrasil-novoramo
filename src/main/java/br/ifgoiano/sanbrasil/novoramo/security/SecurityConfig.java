@@ -33,8 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // require all requests to be authenticated except for the resources
         http.authorizeRequests().antMatchers("/javax.faces.resource/**", "/publico/**", "/index.xhtml", "/*",
-                "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**", "/v2/api-docs", "/oauth/token",
-                "/login.xhtml", "/api/usuario/salvar-externo")
+                "/swagger-resources/**", "/configuration/**", "/swagger-ui.html", "/webjars/**", "/v2/api-docs",
+                "/login.xhtml", "/api/publico/**")
                 .permitAll().anyRequest().authenticated();
         // login
         http.formLogin()
