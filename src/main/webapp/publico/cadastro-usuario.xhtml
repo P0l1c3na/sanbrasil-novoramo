@@ -4,8 +4,74 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+    <title>Cadastro de Usuário</title>
+    <h:outputStylesheet library="css" name="/bootstrap/dist/css/bootstrap-grid.min.css"/>
+    <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css"/>
+    <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css"/>
+</h:head>
+
+
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h:form styleClass="container" onsubmit="validatePassword()">
+
+        <p:card styleClass="row d-flex justify-content-center align-content-center mt-5">
+
+            <f:facet name="title">
+                Cadastro de Usuário
+            </f:facet>
+
+            <p:inputText label="Email" title="Email" placeholder="Email" styleClass="col-md-5 m-3" type="email"
+                         value="#{usuarioForm.email}" required="required"/>
+            <p:inputText label="Nome" title="Nome" placeholder="Nome" styleClass="col-md-5 m-3"
+                         value="#{usuarioForm.nome}" required="required"/>
+
+            <p:inputMask label="Telefone" title="Telefone" placeholder="Telefone" styleClass="col-md-5 m-3"
+                         required="required"
+                         value="#{usuarioForm.telefone}" mask="(99) 9 99999999"/>
+            <div class="col-md-5 m-3"></div>
+
+            <p:inputText label="Senha" pattern="(?=.*\d)(?=.*[a-z]).{8,}"
+                         title="Deve conter pelo menos um número e uma letra maiúscula, minúscula e pelo menos 8 ou mais caracteres"
+                         placeholder="Senha" styleClass="col-md-5 m-3" type="password" value="#{usuarioForm.senha}"
+                         required="required"
+                         id="password"
+                         name="password"/>
+
+            <p:inputText label="Confirmação de Senha" pattern="(?=.*\d)(?=.*[a-z]).{8,}"
+                         title="Deve conter pelo menos um número e uma letra maiúscula, minúscula e pelo menos 8 ou mais caracteres"
+                         placeholder="Confirmação de Senha" styleClass="col-md-5 m-3" type="password"
+                         value="#{usuarioForm.senha}"
+                         required="required"
+                         id="passwordconfirm"
+                         name="passwordconfirm"/>
+
+            <f:facet name="footer">
+                <div class="d-flex justify-content-end mr-lg-5">
+                    <p:commandButton type="submit" value="Cadastrar Usuário"
+                                     action="#{cadastroUsuarioBean.cadastrarUsuario}"/>
+                </div>
+            </f:facet>
+        </p:card>
+    </h:form>
 </f:view>
+<script type="text/javascript">
+    var password = document.getElementById("password")
+        , confirm_password = document.getElementById("passwordconfirm");
+
+    function validatePassword() {
+        if (password.value !== confirm_password.value) {
+            confirm_password.setCustomValidity("As senhas não são iguais! Por favor, insira sua senha corretamente!");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+</script>
 </html>

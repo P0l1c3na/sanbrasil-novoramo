@@ -85,4 +85,5 @@ public class UsuarioService  implements ISanBrasilService<Usuario, String> {
     public Usuario salvarExterno(Usuario usuario){
         return this.save(this.handleUser(usuario));
     }
+
 }
