@@ -20,13 +20,18 @@
                            rendered="${!empty param['error']}"/>
             <p:outputLabel value="Cadastrado com sucesso! Faça Login usando suas credenciais" styleClass="green"
                            rendered="${!empty param['cadastrado']}"/>
+            <p:outputLabel value="Senha recuperada com sucesso! Faça Login usando suas credenciais" styleClass="green"
+                           rendered="${!empty param['senhaRecuperada']}"/>
 
             <p:inputText styleClass="col-md-12" id="username" placeholder="Email"/>
             <p:password styleClass="col-md-12" id="password" placeholder="Senha"/>
 
             <p:commandButton value="Login" ajax="false"/>
+
+            <div class="col-md-12 justify-content-end"><a href="${pageContext.request.contextPath}/sanbrasil/publico/cadastro-usuario.xhtml" >Não possui cadastro? Clique aqui</a></div>
+            <div class="col-md-12 justify-content-end"><a href="${pageContext.request.contextPath}/sanbrasil/publico/recuperar-senha.xhtml" >Esqueceu sua senha?</a></div>
         </p:panelGrid>
-        <div class="justify-content-end"><a href="${pageContext.request.contextPath}/sanbrasil/publico/cadastro-usuario.xhtml" >Não possui cadastro? Clique aqui</a></div>
+
 
     </h:form>
 </h:body>

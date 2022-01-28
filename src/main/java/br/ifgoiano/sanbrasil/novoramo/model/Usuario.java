@@ -47,4 +47,7 @@ public class Usuario {
     @Getter @Setter
     private String telefone;
 
+    public Usuario(@Email @Length(max = 128) String email) {
+        this.email = email;
+    }
 }

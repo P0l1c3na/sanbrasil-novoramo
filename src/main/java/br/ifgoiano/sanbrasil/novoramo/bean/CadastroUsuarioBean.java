@@ -37,7 +37,7 @@ public class CadastroUsuarioBean implements Serializable {
         if (Objects.isNull(usuarioCadastrado)) {
             var stb = new StringBuilder();
 
-            if (!validarSenha(stb) || !validarNomeEmail(stb)) {
+            if (!usuarioService.validarSenha(stb, usuarioForm.getSenha(), usuarioForm.getConfirmacaoSenha()) || !validarNomeEmail(stb)) {
                 usuarioForm.setFalhou(Boolean.TRUE);
                 usuarioForm.setMensagem(stb.toString());
                 this.redirectPage("/publico/cadastro-usuario.xhtml");
@@ -75,27 +75,7 @@ public class CadastroUsuarioBean implements Serializable {
         }
     }
 
-    private boolean validarSenha(StringBuilder stb) {
-        if (Objects.isNull(usuarioForm.getSenha())
-                || Objects.isNull(usuarioForm.getConfirmacaoSenha())
-                || usuarioForm.getSenha().isEmpty()
-                || usuarioForm.getConfirmacaoSenha().isEmpty()) {
-            stb.append("A Senha e Confirmação de Senha devem ser preenchidos! \n");
-            return false;
-        } else {
-            if (!usuarioForm.getConfirmacaoSenha().equals(usuarioForm.getSenha())) {
-                stb.append("A Senha e a Confirmação de Senha devem ser iguais! \n");
-                return false;
-            }
-            if (!Pattern.compile("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}")
-                    .matcher(usuarioForm.getSenha())
-                    .matches()) {
-                stb.append("A Senha deve conter pelo menos 8 caracteres, 1 Letra Maiúscula, 1 Número, 1 Símbolo e não deve ter sequencia!\n");
-                return false;
-            }
-        }
-        return true;
-    }
+
 
     private boolean validarNomeEmail(StringBuilder stringBuilder) {
 
