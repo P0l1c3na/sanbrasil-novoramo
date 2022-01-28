@@ -16,14 +16,17 @@
         <p:panelGrid columns="1" styleClass="ui-fluid center ui-noborder row col-md-12 d-flex justify-content-center mt-5 w-100">
             <h2>Login SanBrasil</h2>
 
-            <p:outputLabel value="Login failed!" styleClass="red"
+            <p:outputLabel value="Login ou Senha Incorretos!" styleClass="red"
                            rendered="${!empty param['error']}"/>
+            <p:outputLabel value="Cadastrado com sucesso! Faça Login usando suas credenciais" styleClass="green"
+                           rendered="${!empty param['cadastrado']}"/>
 
             <p:inputText styleClass="col-md-12" id="username" placeholder="Email"/>
             <p:password styleClass="col-md-12" id="password" placeholder="Senha"/>
 
             <p:commandButton value="Login" ajax="false"/>
         </p:panelGrid>
+        <div class="justify-content-end"><a href="${pageContext.request.contextPath}/sanbrasil/publico/cadastro-usuario.xhtml" >Não possui cadastro? Clique aqui</a></div>
 
     </h:form>
 </h:body>

@@ -15,11 +15,13 @@ public class UsuarioForm implements Serializable {
 
     private String senha;
 
+    private String confirmacaoSenha;
+
     private String nome;
 
     private String telefone;
 
     private String mensagem;
 
-    private Boolean sucesso;
+    private Boolean falhou;
 }

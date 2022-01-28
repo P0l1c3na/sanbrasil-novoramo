@@ -9,7 +9,7 @@
     <title>SanBrasil</title>
 </h:head>
 <h:body id="body">
-
+    <h:outputStylesheet library="css" name="/bootstrap/dist/css/bootstrap-grid.min.css"/>
     <h:outputStylesheet name="styleIndex.css" library="css" />
 
     <div id="header">
@@ -17,8 +17,13 @@
             <div id="list-left">
                 <h3 id="item1">SanBrasil</h3>
             </div>
-            <div id="list-right">
-                <p:button href="login.xhtml" id="item-btn">Login</p:button>
+            <div id="list-right mr-5">
+                <p:menubar styleClass="mr-lg-5">
+                    <p:submenu label="Acesso">
+                        <p:menuitem value="Login" url="login.xhtml" />
+                        <p:menuitem value="Cadastro" url="publico/cadastro-usuario.xhtml" />
+                    </p:submenu>
+                </p:menubar>
             </div>
         </div>
 

@@ -11,6 +11,7 @@
 <h:head>
     <title>Cadastro de Usuário</title>
     <h:outputStylesheet library="css" name="/bootstrap/dist/css/bootstrap-grid.min.css"/>
+    <h:outputStylesheet library="css" name="/styleCadastroUsuario.css"/>
     <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css"/>
     <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css"/>
 </h:head>
@@ -20,7 +21,7 @@
     <h:form styleClass="container" onsubmit="validatePassword()">
 
         <p:card styleClass="row d-flex justify-content-center align-content-center mt-5">
-
+x'
             <f:facet name="title">
                 Cadastro de Usuário
             </f:facet>
@@ -45,33 +46,22 @@
             <p:inputText label="Confirmação de Senha" pattern="(?=.*\d)(?=.*[a-z]).{8,}"
                          title="Deve conter pelo menos um número e uma letra maiúscula, minúscula e pelo menos 8 ou mais caracteres"
                          placeholder="Confirmação de Senha" styleClass="col-md-5 m-3" type="password"
-                         value="#{usuarioForm.senha}"
+                         value="#{usuarioForm.confirmacaoSenha}"
                          required="required"
                          id="passwordconfirm"
                          name="passwordconfirm"/>
+            <div class="col-md-6"></div>
+            <p:outputLabel styleClass="error col-md-12" value="#{usuarioForm.mensagem}"
+                           rendered="#{usuarioForm.falhou}"/>
 
             <f:facet name="footer">
+
                 <div class="d-flex justify-content-end mr-lg-5">
-                    <p:commandButton type="submit" value="Cadastrar Usuário"
+                    <p:commandButton value="Cadastrar Usuário"
                                      action="#{cadastroUsuarioBean.cadastrarUsuario}"/>
                 </div>
             </f:facet>
         </p:card>
     </h:form>
 </f:view>
-<script type="text/javascript">
-    var password = document.getElementById("password")
-        , confirm_password = document.getElementById("passwordconfirm");
-
-    function validatePassword() {
-        if (password.value !== confirm_password.value) {
-            confirm_password.setCustomValidity("As senhas não são iguais! Por favor, insira sua senha corretamente!");
-        } else {
-            confirm_password.setCustomValidity('');
-        }
-    }
-
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
-</script>
 </html>

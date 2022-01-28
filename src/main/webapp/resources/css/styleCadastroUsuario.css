@@ -1,35 +1,3 @@
-*{
-	margin:0px;
-	padding: 0px;
-	box-sizing: border-box;
+.error{
+	color: red;
 }
-
-.form{
-	width: 60%;
-	display:block;
-	margin: 40px auto;
-}
-
-.inputs{
-	display:block;
-	width: 90%;
-	margin: 20px auto;
-}
-
-.inputArquivo{
-	display:block;
-	width: 90%;
-	margin: 20px auto;
-}
-
-#box-button{
-	margin-left: 5%;
-}
-
-.button{
-	display:block;
-	width: 150px;
-	padding:8px;
-	font-size: 30px;
-}
-
