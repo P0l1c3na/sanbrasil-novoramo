@@ -45,6 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout().logoutSuccessUrl("/login.xhtml");
         // not needed as JSF 2.2 is implicitly protected against CSRF
         http.csrf().disable();
+
+        log.info("Configuração de Das páginas de login, URLS de acesso, Swagger e serviços REST finalizadas!");
     }
 
     @Autowired
@@ -63,7 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "on pu.usuario_email = u.email " +
                         "Where u.email Like ?");
 
-        log.info("Usuario realizou Login");
+        log.info("Configuração de Login do usuário utilizando spring security finalizada");
     }
 
     @Bean

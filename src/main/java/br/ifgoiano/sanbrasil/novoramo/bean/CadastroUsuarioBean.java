@@ -1,7 +1,7 @@
 package br.ifgoiano.sanbrasil.novoramo.bean;
 
 import br.ifgoiano.sanbrasil.novoramo.enums.PerfilUsuario;
-import br.ifgoiano.sanbrasil.novoramo.form.UsuarioForm;
+import br.ifgoiano.sanbrasil.novoramo.bean.form.UsuarioForm;
 import br.ifgoiano.sanbrasil.novoramo.model.Perfil;
 import br.ifgoiano.sanbrasil.novoramo.service.UsuarioService;
 import lombok.extern.slf4j.Slf4j;

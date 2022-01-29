@@ -1,6 +1,6 @@
 package br.ifgoiano.sanbrasil.novoramo.bean;
 
-import br.ifgoiano.sanbrasil.novoramo.form.RecuperacaoSenhaForm;
+import br.ifgoiano.sanbrasil.novoramo.bean.form.RecuperacaoSenhaForm;
 import br.ifgoiano.sanbrasil.novoramo.service.RecuperacaoSenhaService;
 import br.ifgoiano.sanbrasil.novoramo.service.UsuarioService;
 import lombok.extern.slf4j.Slf4j;

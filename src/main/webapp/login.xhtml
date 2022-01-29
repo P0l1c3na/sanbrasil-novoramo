@@ -7,13 +7,14 @@
 
 <h:head>
     <title>Login</title>
-    <h:outputStylesheet library="css" name="/bootstrap/dist/css/bootstrap-grid.min.css" />
+    <h:outputStylesheet library="css" name="/bootstrap/dist/css/bootstrap-grid.min.css"/>
 </h:head>
 
 <h:body styleClass="w-100">
 
     <h:form prependId="false" styleClass="d-flex row col-xl-12 justify-content-center mt-5 container w-100">
-        <p:panelGrid columns="1" styleClass="ui-fluid center ui-noborder row col-md-12 d-flex justify-content-center mt-5 w-100">
+        <p:panelGrid columns="1"
+                     styleClass="ui-fluid center ui-noborder row col-md-12 d-flex justify-content-center mt-5 w-100">
             <h2>Login SanBrasil</h2>
 
             <p:outputLabel value="Login ou Senha Incorretos!" styleClass="red"
@@ -27,9 +28,12 @@
             <p:password styleClass="col-md-12" id="password" placeholder="Senha"/>
 
             <p:commandButton value="Login" ajax="false"/>
-
-            <div class="col-md-12 justify-content-end"><a href="${pageContext.request.contextPath}/sanbrasil/publico/cadastro-usuario.xhtml" >Não possui cadastro? Clique aqui</a></div>
-            <div class="col-md-12 justify-content-end"><a href="${pageContext.request.contextPath}/sanbrasil/publico/recuperar-senha.xhtml" >Esqueceu sua senha?</a></div>
+            <p:link styleClass="col-md-12"
+                    href="${pageContext.request.contextPath}/sanbrasil/publico/cadastro-usuario.xhtml"
+                    value="Não possui cadastro?"/>
+            <p:link styleClass="col-md-12"
+                    href="${pageContext.request.contextPath}/sanbrasil/publico/recuperar-senha.xhtml"
+                    value="Esqueceu sua senha?"/>
         </p:panelGrid>
 
 

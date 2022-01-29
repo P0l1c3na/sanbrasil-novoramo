@@ -1,4 +1,4 @@
-package br.ifgoiano.sanbrasil.novoramo.form;
+package br.ifgoiano.sanbrasil.novoramo.bean.form;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
